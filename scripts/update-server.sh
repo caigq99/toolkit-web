@@ -77,6 +77,11 @@ else
   echo "公网检查未通过，请稍后手动检查：$PUBLIC_URL" >&2
 fi
 
+echo "== Cleanup old images =="
+# 仅在服务健康检查和 nginx reload 成功后清理未被任何容器使用的旧镜像。
+# 这会删除旧版本 toolkit-web 镜像以及其它未使用镜像；正在运行的镜像不会被删除。
+docker image prune -af
+
 echo "== Current container =="
 docker compose -f "$COMPOSE_FILE" ps
 
