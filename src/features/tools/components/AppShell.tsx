@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom"
 import { Home, Moon, ShieldCheck } from "lucide-react"
 
+import { ToolKitLogo } from "@/components/brand/ToolKitLogo"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
@@ -19,7 +20,7 @@ export function AppShell() {
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r bg-card/80 backdrop-blur lg:flex lg:flex-col">
         <div className="border-b p-5">
           <NavLink to="/" className="flex items-center gap-3">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">T</div>
+            <ToolKitLogo />
             <div>
               <div className="font-semibold tracking-tight">ToolKit</div>
               <div className="text-xs text-muted-foreground">本地优先的小工具箱</div>
@@ -51,7 +52,7 @@ export function AppShell() {
       <div className="lg:pl-72">
         <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
           <div className="flex h-16 items-center gap-3 px-4 sm:px-6">
-            <NavLink to="/" className="flex items-center gap-2 font-semibold lg:hidden"><div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">T</div>ToolKit</NavLink>
+            <NavLink to="/" className="flex items-center gap-2 font-semibold lg:hidden"><ToolKitLogo className="size-8" />ToolKit</NavLink>
             <div className="flex-1"><SearchCommand /></div>
             <Button type="button" variant="ghost" size="icon" title="切换深色模式" onClick={toggleTheme}><Moon /></Button>
           </div>
